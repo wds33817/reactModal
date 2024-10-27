@@ -8,10 +8,14 @@ function Modal({ children, onClose }) {
     return null;
   }
   return ReactDom.createPortal(
-    <div className='modal'>
-      <div className='modal-content'>
-        <button onClick={onClose}>Close</button>
-        {children}
+    <div className='custom-dialog-overlay'>
+      <div className='custom-dialog'>
+        <div className='custom-dialog-header'>
+          <button onClick={onClose} className='close-button'>
+            ×
+          </button>
+        </div>
+        <div className='custom-dialog-body'>{children}</div>
       </div>
     </div>,
     document.getElementById('portal-root')
